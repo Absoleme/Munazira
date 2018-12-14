@@ -1,0 +1,52 @@
+img{
+    width: 100px;
+    height: 100px;
+}
+
+p
+
+/*On séléctionne tous les paragraphes*/
+    {
+    color: black;
+    font-size: 1.0em;
+    /*Taille du texte */
+    font-family: Arial, Impact;
+    /*Pour changer la police, dans l'ordre de priorité*/
+    /*font-style: italic;Pour le style d'écriture*/
+    /* font-weight: bold; pour mettre en gras
+text-decoration: underline; pour souligner
+text-decoration: line-through; pour barrer*/
+    /*Pour aligner le texte*/
+
+
+}
+
+h1 {
+    text-align: center;
+    /*"justify" pour prende toute la longueur*/
+    text-shadow: 6px 6px 8px white;
+}
+
+.flottant
+
+/*Fait réféerence à toute les valeurs"flottant" du texte html*/
+    {
+    float: left;
+}
+
+ul {
+    border: 3px red solid;
+    /*Pour encadrer*/
+    border-radius: 20px;
+    /*Pour arrondir l'encadrer*/
+    box-shadow: 6px 6px 0px red;
+    /*Pour rajouter un ombrage à l'encadrer*/
+    /*text-shadow pour rajouter un ombrage au texte*/
+}
+
+
+
+/*h1
+{
+background-color: white;
+}*/
