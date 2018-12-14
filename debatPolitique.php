@@ -37,7 +37,7 @@
     ?>
     </div>
     <script>
-    setInterval('load_messages()', 500); // J'actualise toute les 500 milisecondes le chat afin que les utili
+    setInterval('load_messages()', 500); // J'actualise toute les 500 milisecondes le chat afin que les utilisateurs puisse voir en temps réel les messages mis en lignes 
         function load_messages(){
             $('#message').load('load_messages.php');
         }
