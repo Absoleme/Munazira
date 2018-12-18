@@ -45,8 +45,8 @@
 
 <body>
 
-   <?php include("vue/vueProfil.php"); ?>
-     <br /> <br /> <br />
+    <?php include("vue/vueProfil.php"); ?>
+    <br /> <br /> <br />
     <?php //echo vous êtes actuellement $_SESSION['nbMembre'] en attente dun autre utilisateur avant de commencer le débat;
     if(!empty($_SESSION['id'])) {
         $ip_user = $_SERVER['REMOTE_ADDR']; // je récupère l'adresse ip de l'utilisateur
@@ -64,13 +64,14 @@
         $show_user_nbr = $bdd->query('SELECT * FROM room');
         $user_nbr = $show_user_nbr -> rowCount();
         echo "Vous êtes actuellement ".$user_nbr." personne dans le loby";
+      // $nb_ip = $bdd -> query('SELECT COUNT (*) FROM room');
     if($user_nbr == 2)
     { 
-       req_ip_del= $bdd -> prepare('DELETE FROM room WHERE ip_user= ? and statue = ?' );
-       req_ip_del -> execute(array($ip_user, $add_statue));
-        header("Location:debatPolitique.php");
+       header("Location:debatPolitique.php");
+       $req_ip_del= $bdd -> prepare('TRUNCATE TABLE room' );
+       $req_ip_del -> execute();
     }
-    }   
+    }
     
     ?>
 
