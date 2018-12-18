@@ -8,12 +8,6 @@
         $message = htmlspecialchars($_POST['message']);
         $insertmsg = $bdd -> prepare('INSERT INTO chat(pseudo,message) VALUES(?,?)');
         $insertmsg -> execute(array($pseudo,$message));
-        
-     
-     // SELECTION DE LA QUESTION POSÉE À L'UTILISATEUR //
-       
-        //$req_question = $bdd -> query('SELECT * FROM questionPolitique WHERE question = USA VS CHINE');
-        //echo'debug1'; print_r($question_info);echo'debug1';die;
     }
 ?>
 <html>
@@ -33,7 +27,10 @@
     <?php include("vue/vueProfil.php"); ?>
     <br/> <br /> <br /> <br /> 
     
-        <?php  $question_alea = rand(1,2);
+        <?php  
+             // SELECTION DE LA QUESTION POSÉE À L'UTILISATEUR //
+       
+        $question_alea = rand(1,2); 
         $req_question = $bdd -> prepare('SELECT * FROM questionPolitique WHERE id = ?');
         $req_question -> execute(array($question_alea));
         $info_quest = $req_question -> fetch();
