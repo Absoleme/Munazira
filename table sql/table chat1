@@ -1,0 +1,47 @@
+-- phpMyAdmin SQL Dump
+-- version 4.8.3
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : localhost:8889
+-- Généré le :  mer. 19 déc. 2018 à 21:16
+-- Version du serveur :  5.7.23
+-- Version de PHP :  7.2.8
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Base de données :  `munaziraMembre`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `chat1`
+--
+
+CREATE TABLE `chat1` (
+  `id` int(11) NOT NULL,
+  `pseudo` varchar(255) NOT NULL,
+  `message` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `chat1`
+--
+ALTER TABLE `chat1`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `chat1`
+--
+ALTER TABLE `chat1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;

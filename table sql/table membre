@@ -1,0 +1,59 @@
+-- phpMyAdmin SQL Dump
+-- version 4.8.3
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : localhost:8889
+-- Généré le :  mer. 19 déc. 2018 à 21:15
+-- Version du serveur :  5.7.23
+-- Version de PHP :  7.2.8
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Base de données :  `munaziraMembre`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `membre`
+--
+
+CREATE TABLE `membre` (
+  `id` int(11) NOT NULL,
+  `pseudo` varchar(255) NOT NULL,
+  `mail` varchar(255) NOT NULL,
+  `motdepasse` text NOT NULL,
+  `avis` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `membre`
+--
+
+INSERT INTO `membre` (`id`, `pseudo`, `mail`, `motdepasse`, `avis`) VALUES
+(1, 'Amine', 'azjdi@hzufhe.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', '0'),
+(47, 'ish', 'ish@ish', 'de271790913ea81742b7d31a70d85f50a3d3e5ae', '0,1,0,0'),
+(48, 'hah', 'aha@h', 'de271790913ea81742b7d31a70d85f50a3d3e5ae', '0,0,1,1'),
+(49, 'jejeje', 'j@j', 'de271790913ea81742b7d31a70d85f50a3d3e5ae', ',,,');
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `membre`
+--
+ALTER TABLE `membre`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `membre`
+--
+ALTER TABLE `membre`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
