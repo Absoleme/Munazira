@@ -2,12 +2,12 @@
  session_start();
  setcookie("COOKIE","id", session_set_cookie_params(0));
  $bdd = new PDO ('mysql:host=localhost;dbname=munaziraMembre', 'root', 'root'); 
- if(isset($_POST['pseudo']) and isset($_POST['message']) and !empty($_POST['pseudo']) and !empty($_POST['message']))
+ if(isset($_SESSION['pseudo']) and isset($_POST['message']) and !empty($_SESSION['pseudo']) and !empty($_POST['message']))
     {
-        $pseudo = htmlspecialchars($_POST['pseudo']); // empêche l'utilisateur d'écrire avec des balises html ou php -> sécurité du champs
+        $pseudo = htmlspecialchars($_SESSION['pseudo']); // empêche l'utilisateur d'écrire avec des balises html ou php -> sécurité du champs
         $message = htmlspecialchars($_POST['message']);
-        $insertmsg = $bdd -> prepare('INSERT INTO chat(pseudo,message) VALUES(?,?)');
-        $insertmsg -> execute(array($pseudo,$message));
+        $insertmsg = $bdd -> prepare('INSERT INTO chat'.$_SESSION['question'].'(pseudo,message) VALUES(?,?)');
+        $insertmsg -> execute(array($_SESSION['pseudo'],$message));
     }
 ?>
 <html>
@@ -30,9 +30,9 @@
         <?php  
              // SELECTION DE LA QUESTION POSÉE À L'UTILISATEUR //
        
-        $question_alea = rand(1,2); 
+         
         $req_question = $bdd -> prepare('SELECT * FROM questionPolitique WHERE id = ?');
-        $req_question -> execute(array($question_alea));
+        $req_question -> execute(array($_SESSION['question']));
         $info_quest = $req_question -> fetch();
         
     echo ($info_quest['question']); ?>
@@ -42,14 +42,29 @@
 
     <div id="message">
         <?php 
-    $allmsg = $bdd -> query('SELECT * FROM chat ORDER BY id DESC LIMIT 0,6'); // Pour afficher les messages les plus récent en premier dans la limite de 6 messages
+    $allmsg = $bdd -> query('SELECT * FROM chat'.$_SESSION['question'].' ORDER BY id DESC LIMIT 0,6'); // Pour afficher les messages les plus récent en premier dans la limite de 6 messages
+    /* Effacement de toutes les lignes de la table FRUIT */
+$del = $bdd->prepare('SELECT id FROM chat'.$_SESSION['question']);
+$del->execute();
+
+/* Retourne le nombre de lignes effacées */
+
+$count = $del->rowCount();
+
+        
+        
     while($msg = $allmsg -> fetch())
     {
     ?>
         <b>
-            <?php echo $msg['pseudo']; ?> : </b> <b>
-            <?php echo $msg['message']; ?> </b> <br />
+            <?php echo $_SESSION['pseudo']; ?> : </b> <b>
+        <?php echo $msg['message']; ?> </b> <br />
+        
         <?php 
+        if($count > '3')
+        {
+            header ('Location:profil.php');
+        }
     }
     ?>
     </div>
