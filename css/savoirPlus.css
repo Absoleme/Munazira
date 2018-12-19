@@ -21,6 +21,8 @@ text-shadow: 6px 6px 8px white;
 .flottant/*Fait réféerence à toute les valeurs"flottant" du texte html*/
 {
 float: left;
+    width: 20%;
+height: 90%;
 }
 
 ul
