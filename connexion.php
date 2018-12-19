@@ -25,9 +25,11 @@
         {
             session_start();
             setcookie("COOKIE","id", session_set_cookie_params(0));
+            $question_alea = rand(1,2);
             $userinfo = $requser -> fetch();
             $_SESSION['id'] = $userinfo['id'];
             $_SESSION['pseudo'] = $userinfo['pseudo'];
+            $_SESSION['question'] = $question_alea;
          // $_SESSION['mdp'] = $userinfo['mdp'];
             header("Location:profil.php?id=". $_SESSION['id']);
         }
