@@ -31,7 +31,7 @@
                 </li>
                 <!--id="" pour que le lien (plus bas) fasse retourner à cet endroit-->
                 <p>L'inscription a lieu lors de la première visite sur le site, lors de cette dernière, vous devrez insérer un email, un mot de passe, un pseudo et vous devrez également choisir pour quel camp vous choisissez pour les différents débats proposés par notre site. Une fois ces derniers validé, lors de l'entré dans une room, votre camp sera déjà définit.</p>
-                <p>A toi de jouer, inscris toi via ce lien --> <a href="inscription.php" title="Inscris toi !" target=_blank>Inscrit toi !</a></p>
+                <p>A toi de jouer, inscris toi via ce lien --> <a href="inscription.php" title="Inscris toi !" >Inscrit toi !</a></p>
                 <!--href pour ajouter un lien (ici externe à munazira), "title" pour faire apparaître une bulle sur le lien et "target" pour ouvrir dans une autre fenêtre-->
                 <li>
                     <h2 id="troisième">Nous contacter </h2>
