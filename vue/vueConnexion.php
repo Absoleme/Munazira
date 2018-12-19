@@ -3,7 +3,7 @@
         <div class="form_content">
             <h2>Qu'est-ce que Munazira ?</h2>
             <p>Débattre, c'est le maître mot ! Plusieurs débats, plusieurs choix, et bien sur, pour les meilleurs commentaires d'entre vous élus par la communauté, vous vous trouverez en top liste des commentaire ! <br />
-                Identifiez vous et amusez vous entre ami !</p>
+                Identifiez vous et amusez vous entre amis !</p>
             <a href="savoirPlus.php">En savoir plus</a>
         </div>
         <div class="login_form">

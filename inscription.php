@@ -27,11 +27,6 @@
             $QP2 = $_POST['QP2'];
             $QP3 = $_POST['QP3'];
             $QP = $QP0.",".$QP1.",".$QP2.",".$QP3;
-      //      $QP  = array($QP0,$QP1,$QP2,$QP3);
-        //    $serialized = serialize($QP);
-    //        var_dump($serialized);
-            
-           //var_dump(explode(',',$QP));
             
             
             $pseudolength = strlen($pseudo);
@@ -51,31 +46,14 @@
                     {
                          if($mdp == $mdp2)
                     {
-                       /* if($QP0 == 0 or $QP0 == 1)
-                        {
-                            if($QP1 == 0 or $QP1 == 1)
-                            {
-                                if($QP2 == 0 or $QP2 == 1)
-                                {
-                                    if($QP3 == 0 or $QP3 == 1)
-                                    {*/
+                       
                           
                                         session_start();
                                         setcookie("COOKIE","id", session_set_cookie_params(0));   
                                         $insertMembre = $bdd->prepare("INSERT INTO membre(pseudo,mail,motdepasse,avis) VALUES(?,?,?,?)");
                                         $insertMembre->execute(array($pseudo,$mail,$mdp,$QP));
                                         header("Location:connexion.php");
-                                        //echo "votre compte a bien été créé";
-                                  /*  }
-                                }
-                               
-                            }
-                             
-                        }
-                             else 
-                             {
-                                 echo " Veuillez repondre à la question 1 svp";
-                             }*/
+                                       
                        
                     }
                     else
@@ -112,55 +90,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-<!--
-$pseudo = 'pseudo_libre';
-try
-{
-$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
-$bdd = new PDO('mysql:host=localhost;dbname=munaziraMembre', 'root', 'root');
-
-$reponse = $bdd->query('SELECT pseudo, mdp FROM membre WHERE pseudo='.$pseudo);
-
-if ($donnees = $reponse->fetch())
-{
-echo 'Il y a déjà une personne qui utilise '.$pseudo .' comme pseudo !<br />';
-}
-$reponse->closeCursor();
-}
-catch(Exception $e)
-{
-die('Erreur : '.$e->getMessage());
-}
-
-try
-{
-$bdd = new PDO('mysql:host=localhost;dbname=munaziraMembre','root','root');
-
-$requete = $bdd->query('SELECT pseudo, mdp FROM membre WHERE mdp='.$mdp);
-
-if(isset($_POST['mdp'] != $POST['remdp'])
-{
-echo '<p>' . Veuillez saisir le même mot de passe . '</p>';
-}
-
-}
-
-$pass_hache = password_hash($_POST['pass'], PASSWORD_DEFAULT); // hashage du mdp
-
-// Insertion dans la base de données
-$req = $bdd->prepare('INSERT INTO membre(pseudo, mdp) VALUES(:pseudo, :mdp)');
-$req->execute(array(
-'pseudo' => $pseudo,
-'mdp' => $pass_hache,));
-?>
--->

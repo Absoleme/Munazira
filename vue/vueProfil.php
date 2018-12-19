@@ -23,7 +23,7 @@
             echo "<ul>";
                 echo "<li><a href=\"editionProfil.php\">Edition</a></li>";
                 echo "<li><a href=\"#\">Messagerie</a></li>";
-                echo "<li><a href=\"deconnexion.php\">Déconnection</a></li>";
+                echo "<li><a href=\"deconnexion.php\">Déconnexion</a></li>";
             echo"</ul>";
                // }
             
@@ -32,7 +32,7 @@
             
             
         </li>
-        <li> <a href="#"><i class="fa fa-search"></i></a></li>
+        <li> <img src="css/LogoMunazira.png" alt="logo" class = "flottant"> </li>
 </ul>
 
 

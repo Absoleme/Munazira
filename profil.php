@@ -32,21 +32,8 @@
  <div class="block">
             <div class="banner">
                     <div class="banner-content">
-                        <h1 class="title is-1"> <font color="black">Profil de <?php echo $userinfo['pseudo']; ?></font></h1>
-                    <h2 class="subtitle"><font color="black">Découvrez les différents thèmes dans la barre de navigation !</font></h2>
-                        <?php
-                        /*
-            if(!empty($_COOKIE['id']))
-            {
-                        if(isset($_COOKIE['id']) and $userinfo['id'] == $_COOKIE['id'])
-                        {
-                        ?>
-                        <a href="editionProfil.php">Editer mon profil</a>
-                        <a href="deconnexion.php" >Se deconnecter</a>
-                        <?php
-                        }
-            } */
-                        ?>         
+                        <h1 class="title is-1"> <font color="black">Profil de <?php echo $_SESSION['pseudo']; ?></font></h1>
+                    <h2 class="subtitle"><font color="black">Découvrez les différents thèmes dans la barre de navigation !</font></h2>   
                 </div>
             </div>
 </div>

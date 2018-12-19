@@ -2,15 +2,6 @@
     session_start();
     setcookie("COOKIE","id", session_set_cookie_params(0));
     $bdd = new PDO ('mysql:host=localhost;dbname=munaziraMembre', 'root', 'root');
-   /* 
-    if(isset($_GET['id']) and $_GET['id'] > 0)
-    {
-        $getid = intval($_GET['id']);// permet de sécuriser la variable
-        $requser = $bdd -> prepare("SELECT * FROM membre WHERE id = ?");
-        $requser->execute(array($getid));      
-        // AFFICHAGE DES DONNÉES
-        $userinfo = $requser -> fetch();  
-    }  */
 ?>
 <html>
 
