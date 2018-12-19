@@ -7,6 +7,7 @@
             </ul>
         </li>
         <li> <a href="debat.php">Débat</a>
+        <!--<li><!-- <img src="css/LogoMunazira.png"> 
            <!-- <ul>
                 <li> <a href="#">Sport</a> </li>
                 <li> <a href="#">Jeux</a> </li>
