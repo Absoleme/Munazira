@@ -26,7 +26,7 @@
 
 </head>
 
-<body>
+<body> 
     <?php include("vue/vueProfil.php"); ?>
     <br/> <br /> <br /> <br /> 
     
