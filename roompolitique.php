@@ -22,26 +22,25 @@
     <br /> <br /> <br />
     <?php //echo vous êtes actuellement $_SESSION['nbMembre'] en attente dun autre utilisateur avant de commencer le débat;
     if(!empty($_SESSION['id'])) {
-        $ip_user = $_SERVER['REMOTE_ADDR']; // je récupère l'adresse ip de l'utilisateur
         $add_statue = 0;
-        $req_ip_exist = $bdd -> prepare('SELECT * FROM room WHERE user_ip = ?');
+        $req_ip_exist = $bdd -> prepare('SELECT * FROM room WHERE user_ip = ?'); 
         $req_ip_exist -> execute(array($_SESSION['pseudo']));
         $ip_exist = $req_ip_exist -> rowCount(); // Compter le nombre d'entrer avec cette requête
         
         if($ip_exist == 0)
         {
             $add_statue == $add_statue + 1;
-            $add_ip = $bdd -> prepare('INSERT INTO room(user_ip,statue) VALUES(?,?)');
+            $add_ip = $bdd -> prepare('INSERT INTO room(user_ip,statue) VALUES(?,?)'); // insertion du pseudo dans la base de donnée
             $add_ip->execute(array( $_SESSION['pseudo'],$add_statue));
         }
-        $show_user_nbr = $bdd->query('SELECT * FROM room');
+        $show_user_nbr = $bdd->query('SELECT * FROM room'); // Montre à l'utilisateur combien de personne il y a dans la room
         $user_nbr = $show_user_nbr -> rowCount();
         echo "Vous êtes actuellement ".$user_nbr." personne dans le loby";
       // $nb_ip = $bdd -> query('SELECT COUNT (*) FROM room');
     if($user_nbr == 2)
     { 
        header("Location:debatPolitique.php");
-       $req_ip_del= $bdd -> prepare('TRUNCATE TABLE room' );
+       $req_ip_del= $bdd -> prepare('TRUNCATE TABLE room' ); // vidage de la table pour permettre à d'autre utilisateur de venir dans la room
        $req_ip_del -> execute();
     }
     }

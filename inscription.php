@@ -20,24 +20,24 @@
             $pseudo = htmlspecialchars($_POST['pseudo']);
             $mail = htmlspecialchars($_POST['mail']);
             $mail2 = htmlspecialchars($_POST['mail2']);
-            $mdp = sha1($_POST['mdp']);
+            $mdp = sha1($_POST['mdp']); //hashage du mot de passe
             $mdp2 = sha1($_POST['mdp2']);
-            $QP0 = $_POST['QP0'];
+            $QP0 = $_POST['QP0']; 
             $QP1 = $_POST['QP1'];
             $QP2 = $_POST['QP2'];
             $QP3 = $_POST['QP3'];
-            $QP = $QP0.",".$QP1.",".$QP2.",".$QP3;
+            $QP = $QP0.",".$QP1.",".$QP2.",".$QP3; // tableau de booléen correspondant aux questions
             
             
             $pseudolength = strlen($pseudo);
             if($pseudolength <= 255)
             {
-                $reqpseudo = $bdd -> prepare('SELECT * FROM membre WHERE pseudo = ?');
+                $reqpseudo = $bdd -> prepare('SELECT * FROM membre WHERE pseudo = ?'); 
                 $reqpseudo -> execute(array($pseudo));
-                $pseudoexist = $reqpseudo -> rowCount();
-                if($pseudoexist == 0)
+                $pseudoexist = $reqpseudo -> rowCount(); // compte le nombre de fois où le pseudo entré existe
+                if($pseudoexist == 0) // si le pseudo n'existe pas
                 {
-                     if($mail == $mail2)
+                     if($mail == $mail2) 
                 {
                     $reqmail = $bdd->prepare('SELECT * FROM membre WHERE mail = ?');
                     $reqmail->execute(array($mail));
@@ -50,7 +50,7 @@
                           
                                         session_start();
                                         setcookie("COOKIE","id", session_set_cookie_params(0));   
-                                        $insertMembre = $bdd->prepare("INSERT INTO membre(pseudo,mail,motdepasse,avis) VALUES(?,?,?,?)");
+                                        $insertMembre = $bdd->prepare("INSERT INTO membre(pseudo,mail,motdepasse,avis) VALUES(?,?,?,?)"); // Insertion des informations de l'utilisateur dans ma base de données
                                         $insertMembre->execute(array($pseudo,$mail,$mdp,$QP));
                                         header("Location:connexion.php");
                                        

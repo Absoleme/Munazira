@@ -35,7 +35,7 @@
        
         $req_question = $bdd -> prepare('SELECT * FROM questionPolitique WHERE id = ?');
         $req_question -> execute(array($_SESSION['question']));
-        $info_quest = $req_question -> fetch();
+        $info_quest = $req_question -> fetch(); 
         
     echo ($info_quest['question']); ?>
     
@@ -45,10 +45,10 @@
         <?php 
     $allmsg = $bdd -> query('SELECT * FROM chat'.$_SESSION['question'].' ORDER BY id DESC LIMIT 0,10'); // Pour afficher les messages les plus récent en premier dans la limite de 6 messages
     
-    $del = $bdd->prepare('SELECT id FROM chat'.$_SESSION['question']);
+    $del = $bdd->prepare('SELECT id FROM chat'.$_SESSION['question']); // Requête pour selectionner la question aléatoire généré à la connexion
     $del->execute();
 
-    $count = $del->rowCount();
+    $count = $del->rowCount(); // count pour trouver la question dans la base de donnée
 
     while($msg = $allmsg -> fetch()) 
     {
@@ -60,7 +60,7 @@
         <?php 
         if($count > '10') // au bout de 10 messages écrit -> redirection vers le profil de la personne
         {
-            header ('Location:profil.php');
+            header ('Location:profil.php'); 
         }
     }
     ?>

@@ -28,7 +28,6 @@
             $_SESSION['id'] = $userinfo['id']; 
             $_SESSION['pseudo'] = $userinfo['pseudo']; // Variable de session que je vais pouvoir réutiliser 
             $_SESSION['question'] = $question_alea;
-         // $_SESSION['mdp'] = $userinfo['mdp'];
             header("Location:profil.php?id=". $_SESSION['id']); // redirection vers le profil personnalisé
         }
         else

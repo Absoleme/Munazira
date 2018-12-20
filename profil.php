@@ -8,7 +8,6 @@
         $getid = intval($_GET['id']);// permet de sécuriser la variable
         $requser = $bdd -> prepare("SELECT * FROM membre WHERE id = ?");
         $requser->execute(array($getid));      
-        // AFFICHAGE DES DONNÉES
         $userinfo = $requser -> fetch();  
     }  
 ?>
