@@ -22,7 +22,6 @@
                     echo "<a href=\"profil.php\">Profil</a> ";
             echo "<ul>";
                 echo "<li><a href=\"editionProfil.php\">Edition</a></li>";
-                echo "<li><a href=\"#\">Messagerie</a></li>";
                 echo "<li><a href=\"deconnexion.php\">Déconnexion</a></li>";
             echo"</ul>";
                // }
